@@ -1,0 +1,32 @@
+import "bulma/css/bulma.min.css";
+const App = () => {
+  return (
+    <div>
+      <aside className="container">
+        <img className="transparent" src="assets/finger-transparent.png" alt="img" />
+        <div className="container-cyan">
+          <div className="paddle-bottom"></div>
+        </div>
+      </aside>
+      <h2 className="title">SCANNING...</h2>
+      <style>{`
+        *,*::after,*::before{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue';}
+        a,button,img{-webkit-tap-highlight-color:transparent;user-select:none;}
+        button{background-color:transparent;border:none;outline:none;}
+        html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:transparent transparent;}
+        body{height:100vh;width:100%;display:flex;flex-wrap:wrap;place-content:center;background-color:#000;}
+        .container{position:relative;width:10vmax;min-height:12vmax;}
+        .container img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;}
+        .container-cyan{width:100%;height:100%;position:relative;background-image:url('assets/finger-cyan.png');background-repeat:no-repeat;background-size:cover;animation:crecer 3s linear infinite both;transform:translateY(-0.3vmax);filter:blur(0.2px);}
+        .paddle-bottom{position:absolute;bottom:0;width:86%;left:50%;transform:translateX(-50%);height:0.25vmax;background-color:cyan;border-radius:8px;box-shadow:0 0 6px 6px #00ffff22;}
+        .title{position:absolute;left:50%;transform:translateX(-50%);top:70%;color:cyan;font-size:1.2vmax;animation:blink 0.5s ease infinite both;}
+        @keyframes blink{0%{opacity:0;}50%{opacity:1;}100%{opacity:0;}}
+        @keyframes crecer{0%{height:100%;}50%{height:0%;}100%{height:100%;}}
+      `}</style>
+    </div>
+  );
+};
+
+const rootEl = document.createElement('div');
+document.body.appendChild(rootEl);
+ReactDOM.createRoot(rootEl).render(<App />);
